@@ -1,0 +1,90 @@
+{% extends 'inicio/base.html' %} {% load static %}
+
+{% block titulo %}
+
+{% endblock titulo %}
+
+{% block contenido %}
+<h1>
+  <p style="color:black" align="center">Bienvenidos a Dreamchopper </p>
+</h1>
+<h1>
+  <p style="color:black" align="center">{% now "d / m / y" %}</p>
+</h1>
+<div class="container">
+  <div class="row">
+    <div class="col-12 text-center">
+      <!-- Aquí puedes colocar tu carrusel -->
+      <div
+        id="carouselExampleControls"
+        class="carousel slide"
+        data-bs-ride="carousel"
+      >
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img
+              src="{% static 'inicio/assets/img/campera-1.jpg' %}"
+              class="d-block mx-auto"
+              alt="Imagen de Ejemplo"
+              style="max-width: 50%; height: 50%"
+            />
+          </div>
+          <div class="carousel-item">
+            <img
+              src="{% static 'inicio/assets/img/chaleco.jpg' %}"
+              class="d-block mx-auto"
+              alt="Imagen de Ejemplo"
+              style="max-width: 50%; height: 50%"
+            />
+          </div>
+          <div class="carousel-item">
+            <img
+              src="{% static 'inicio/assets/img/chaparreras.jpg' %}"
+              class="d-block mx-auto"
+              alt="Imagen de Ejemplo"
+              style="max-width: 50%; height: 50%"
+            />
+          </div>
+          <div class="carousel-item">
+            <img
+              src="{% static 'inicio/assets/img/guantes-1.jpg' %}"
+              class="d-block mx-auto"
+              alt="Imagen de Ejemplo"
+              style="max-width: 50%; height: 50%"
+            />
+          </div>
+          <div class="carousel-item">
+            <img
+              src="{% static 'inicio/assets/img/pantalon-1.jpg' %}"
+              class="d-block mx-auto"
+              alt="Imagen de Ejemplo"
+              style="max-width: 50%; height: 50%"
+            />
+          </div>
+        </div>
+        <button
+          class="carousel-control-prev"
+          type="button"
+          data-bs-target="#carouselExampleControls"
+          data-bs-slide="prev"
+        >
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Anterior</span>
+        </button>
+        <button
+          class="carousel-control-next"
+          type="button"
+          data-bs-target="#carouselExampleControls"
+          data-bs-slide="next"
+        >
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Siguiente</span>
+        </button>
+      </div>
+      <!-- Contenido del carrusel -->
+    </div>
+  </div>
+</div>
+
+
+{% endblock contenido %}

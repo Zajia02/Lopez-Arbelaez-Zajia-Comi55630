@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        {% load static %}
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Dream Chopper</title>
+        
+        <!-- Favicon-->
+        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+        <!-- Bootstrap icons-->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="{% static 'inicio/css/styles.css' %}" rel="stylesheet" /> 
+        <!-- Font Awesome-->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    </head>
+    <body>
+        <!-- Navigation-->
+
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container px-4 px-lg-5">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+                    <ul class="navbar-nav">
+                        <a class="btn btn-dark me-md-2" class="btn btn-primary me-md-0" href="{% url 'buscar_campera' %}">Buscar</a> 
+                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="{% url 'inicio' %}">Inicio</a></li>
+                            <div class="d-inline-flex d-flex flex-row">
+                                    {% if user.is_authenticated %}
+                                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="{% url 'campera' %}">Camperas</a></li>
+                                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="{% url 'chaleco' %}">Chalecos</a></li>
+                                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="{% url 'pantalon' %}">Pantalones</a></li>
+                                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="{% url 'chaparreras' %}">Chaparreras</a></li>
+                                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="{% url 'guantes' %}">Guantes</a></li> 
+                                        <li class="nav-item nav-link active" style="color:rgba(226, 3, 3, 0.903)"> Hola {{user.username}}!</li>
+                                        <div class="text-center">
+                                            <img class="nav-item me-md-2" class="nav-link active" src="{{ request.session.avatar }}" class="mx-4" height="40px" weight="40px"/>
+                                        </div>
+                                        <a class="btn btn-dark me-md-4" Dark class="btn btn-primary me-md-4" href="{% url 'editar_perfil' %}">Perfil</a>
+                                        <a class="btn btn-dark me-md-4" Dark class="btn btn-primary me-md-4" href="{% url 'logout' %}">Logout</a>
+                                        
+                                    {% else %}   
+                                    <a class="btn btn-dark me-md-2" Dark class="btn btn-primary me-md-2" href="{% url 'registro' %}">Registro</a>
+                                    <a class="btn btn-dark me-md-2" Dark class="btn btn-primary me-md-2" href="{% url 'login' %}">Login</a>
+            
+                                    {% endif %}
+                            </div>   
+                    </ul>   
+                </div>
+        </nav>
+        <!-- Header-->
+        <header class="bg-dark py-5">
+            <div class="container px-4 px-lg-5 my-5">
+                <div class="text-center">
+                    <img src="{% static 'inicio/assets/img/logo.png' %}" alt="Mi imagen" style="max-width: 20%; height: 20%" />
+                </div>
+                <div class="text-center text-white">
+                    <h6 class="display-4 fw-bolder"></h6>
+                    <p class="lead fw-normal text-white-50 mb-0"></p>
+                </div>
+            </div>
+        </header>
+
+        {% block titulo %}
+            
+        {% endblock titulo %}
+
+        {% block about %}
+            
+        {% endblock about %}
+            
+        <!-- Section-->
+
+        {% block contenido %}
+        
+        {% endblock contenido %}
+        <!-- Footer-->
+        <footer class="footer bg-light">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6 h-100 text-center text-lg-start my-auto">
+                        <ul class="list-inline mb-2">
+                            <li class="list-inline-item"><a href="{% url 'about' %}" style="color:black">Acerca de</a></li>
+                            <li class="list-inline-item">⋅</li>
+                            <li class="list-inline-item">⋅</li>
+                        </ul>
+                        <p class="text-muted small mb-4 mb-lg-0">&copy; Comision 55630 [2023]. Zajía Lopez Arbelaez. All Rights Reserved.</p>
+                    </div>
+                    <div class="col-lg-6 h-100 text-center text-lg-end my-auto">
+                        <ul class="list-inline mb-0">
+                            <li class="list-inline-item me-4">
+                                <a href="https://www.facebook.com/search/top?q=dream%20chopper-%20leather%20design%20custom"><i class="bi-facebook fs-3" style="color:black";></i></a>
+                            </li>
+                            <li class="list-inline-item me-4">
+                                <a href="https://github.com/Zajia02/Tercera-pre-entrega-Lopez-Arbelaez-Zajia.git"><i class="bi-github fs-3" style="color:black";></i></a>
+                            </li>
+                            <li class="list-inline-item me-4">
+                                <a href="https://www.instagram.com/lolaarbelaez/"><i class="bi-instagram fs-3" style="color:black";></i></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="{% static 'inicio/js/scripts.js' %}"></script>
+    </body>
+</html>

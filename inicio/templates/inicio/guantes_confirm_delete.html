@@ -1,0 +1,16 @@
+{% extends 'inicio/base.html' %} 
+{% load static %} 
+{% block titulo %}Guantes{% endblock titulo %} 
+
+{% block contenido %}
+    
+    <form action="{% url 'delete_guantes' id_guantes %}" method="POST">
+        {% csrf_token %}   
+        <div class="text-center">     
+            <h3>¿ Está seguro de eliminar los guantes ? <p style="color:red"></p> </h3>
+        </div>
+        <div class="text-center">
+            <input type="submit" class="btn btn-primary btn-block" value="Confirmar">
+        </div>
+    </form>
+{% endblock contenido %}

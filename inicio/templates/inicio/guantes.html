@@ -1,0 +1,56 @@
+{% extends 'inicio/base.html' %}
+{% load static %}
+
+
+{% block contenido %}
+<table>
+    <tr>
+        <td width="200"><h2>Guantes</h2></td>
+        <td>
+            <a
+            href="{% url 'create_guantes' %}"
+            type="button" class="btn btn-dark"
+            ><i class="fa fa-plus fa-lg" title="Agregar guantes"> </i>
+            </a>
+        </td>
+    </tr>
+</table>
+
+    <table class="table table-dark table-striped">
+        <tr>
+            <th>Id</th>
+            <th>Talle</th>
+            <th>Color1</th>
+            <th>Color2</th>
+            <th>Modelo</th>
+            <th>Acciones</th>
+        </tr>
+
+    {% for c in guantes %}
+     
+        <tr>
+            <td>{{ c.id }}</td>
+            <td>{{ c.talle }}</td>
+            <td>{{ c.color1 }}</td>
+            <td>{{ c.color2 }}</td>
+            <td>{{ c.modelo }}</td>
+            <td>
+                <a
+                  href="{% url 'update_guantes' c.id %}"
+                  type="button" class="btn btn-dark"
+                  style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;"
+                  ><i class="fa fa-edit fa-sm" title="Editar"></i>
+                </a>
+                <a
+                  href="{% url 'delete_guantes' c.id %}"
+                  class="btn btn-danger"
+                  style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;"
+                  ><i class="fa fa-trash fa-sm" title="Eliminar"></i>
+                </a>
+              </td>   
+        </tr>
+    
+    {% endfor %}  
+
+    </table> 
+{% endblock contenido %}

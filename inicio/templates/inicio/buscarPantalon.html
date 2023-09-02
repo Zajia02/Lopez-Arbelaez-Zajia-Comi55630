@@ -1,0 +1,13 @@
+{% extends 'inicio/base.html' %}
+{% load static %}
+
+
+{% block contenido %}
+     <h2>Buscar Pantalon</h2>
+     <form action="/buscar5" method="get">
+         {% csrf_token %}
+         <p>Patron a buscar en pantalon : <input type="" name="buscar" id="buscar"></p>
+         <input type="submit" value="Enviar">
+     </form>
+    
+{% endblock contenido %}

@@ -1,0 +1,13 @@
+{% extends 'inicio/base.html' %}
+{% load static %}
+
+
+{% block contenido %}
+     <h2>Buscar Chaleco</h2>
+     <form action="/buscar3" method="get">
+         {% csrf_token %}
+         <p>Patron a buscar en chaleco : <input type="text" name="buscar" id="buscar"></p>
+         <input type="submit" value="Enviar">
+     </form>
+    
+{% endblock contenido %}
